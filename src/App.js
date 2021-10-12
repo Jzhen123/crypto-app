@@ -3,6 +3,7 @@ import { Switch, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 
 import { NavBar } from './components';
+import './App.css'
 
 const App = () => {
     return (
