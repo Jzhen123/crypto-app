@@ -26,18 +26,20 @@
 </head>
 
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyDUm-9NfxNqTSgjgljwoGomaVnShtO-UuQ",
+      authDomain: "cryptobyjimmy.firebaseapp.com",
+      projectId: "cryptobyjimmy",
+      storageBucket: "cryptobyjimmy.appspot.com",
+      messagingSenderId: "318293648496",
+      appId: "1:318293648496:web:edc960792016664eb6c0b5"
+    };
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    const app = initializeApp(firebaseConfig);
+  </script>
 </body>
 
 </html>
