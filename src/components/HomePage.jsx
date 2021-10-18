@@ -4,7 +4,7 @@ import millify from 'millify';
 
 import { Typography, Row, Col, Statistic } from 'antd';
 
-import { Cryptocurrencies, News } from '../components';
+import { Cryptocurrencies, Loader, News } from '../components';
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
 
@@ -14,7 +14,7 @@ const HomePage = () => {
     const { data, isFetching } = useGetCryptosQuery(10);
     const globalStats = data?.data?.stats;
 
-    if (isFetching) return 'Loading...'
+    if (isFetching) return <Loader />;
 
     return (
         <>
