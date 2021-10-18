@@ -4,8 +4,9 @@ import HTMLReactParser from 'html-react-parser';
 import millify from 'millify';
 
 import { useGetCryptoExchangesQuery } from '../services/cryptoApi';
+import { Loader } from '../components';
 
-const { Text } = Typography;
+const { Title, Text } = Typography;
 
 const Exchanges = () => {
     const { data, isFetching } = useGetCryptoExchangesQuery();
@@ -18,7 +19,7 @@ const Exchanges = () => {
     ]
     const tableData = [];
 
-    if (isFetching) return 'Loading...';
+    if (isFetching) return <Loader />;
 
     for (let i = 0; i < cryptoExchanges.length; i++) {
         let exchange = cryptoExchanges[i]
@@ -39,15 +40,18 @@ const Exchanges = () => {
     }
 
     return (
-        <Table
-            columns={columns}
-            expandable={{
-                expandIconColumnIndex: -1,
-                expandRowByClick: true,
-                expandedRowRender: (exchange) => HTMLReactParser(exchange.description),
-            }}
-            dataSource={tableData}
-        />
+        <>
+            <Title level={2}>All Exchanges</Title>
+            <Table
+                columns={columns}
+                expandable={{
+                    expandIconColumnIndex: -1,
+                    expandRowByClick: true,
+                    expandedRowRender: (exchange) => HTMLReactParser(exchange.description),
+                }}
+                dataSource={tableData}
+            />
+        </>
     );
 }
 
